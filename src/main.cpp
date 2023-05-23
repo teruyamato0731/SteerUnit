@@ -158,7 +158,7 @@ int main() {
         int out = sender.max * 0.5;
         // pid
         if(now - pre_alive > 100ms) {
-          out = sender.pwm[4] / 2;
+          out = sender.pwm[motor_id - 1] / 2;
           pid.refresh();
         } else {
           out = pid.calc(target_rpm, reader.data[motor_id - 1].rpm, now - pre);
