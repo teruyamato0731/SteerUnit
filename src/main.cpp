@@ -92,21 +92,21 @@ struct SensorBoard {
   uint8_t lim = {};
   int16_t enc[5] = {};
 };
-struct SteerUnit {
-  void set_target_pos(int) {}
-  void set_target_rpm(int) {}
-  float steer(const int pos, const std::chrono::microseconds& delta_time) {
-    return pid_steer.calc(target_pos, pos, delta_time);
-  }
-  float drive(const int rpm, const std::chrono::microseconds& delta_time) {
-    return pid_drive.calc(target_rpm, rpm, delta_time);
-  }
-  rct::Pid<float> pid_drive{{0.008f, 0.005f}};
-  rct::Pid<float> pid_steer{{0.008f, 0.005f}};
-  int zero_pos;
-  int target_pos;
-  int target_rpm;
-};
+// struct SteerUnit {
+//   void set_target_pos(int) {}
+//   void set_target_rpm(int) {}
+//   float steer(const int pos, const std::chrono::microseconds& delta_time) {
+//     return pid_steer.calc(target_pos, pos, delta_time);
+//   }
+//   float drive(const int rpm, const std::chrono::microseconds& delta_time) {
+//     return pid_drive.calc(target_rpm, rpm, delta_time);
+//   }
+//   rct::Pid<float> pid_drive{{0.008f, 0.005f}};
+//   rct::Pid<float> pid_steer{{0.008f, 0.005f}};
+//   int zero_pos;
+//   int target_pos;
+//   int target_rpm;
+// };
 
 SensorBoard sensor_board{10u, 11u};
 C620Reader reader{};
