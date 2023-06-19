@@ -166,7 +166,7 @@ int main() {
           out = std::clamp(out, -8000, 8000);
         }
 
-        sender.pwm[4] = out;
+        sender.pwm[motor_id - 1] = out;
         printf("%d\t", out);
         sender.send();
         // if(!sender.send()) printf("\nfailed send to c620");
